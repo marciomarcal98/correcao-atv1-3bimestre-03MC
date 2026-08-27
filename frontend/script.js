@@ -11,9 +11,20 @@ async function buscarFilmes() {
                 <p><strong>Gênero:</strong> ${filme.gender}</p>
                 <p><strong>Duração:</strong> ${filme.duration} minutos</p>
                 <p><strong>Classificação indicativa:</strong> ${filme.ageLimit > 0 ? filme.ageLimit + ' anos' : 'Livre'}</p>
+
+                <button onclick="apagarFilme(${filme.id})">Apagar</button>
             </div>
         `
     })
+}
+
+async function apagarFilme(id) {
+    const resposta = await fetch(`https://backend-filmes03mc.vercel.app/delete/${id}`, { method: "DELETE" })
+    const respostaJS = await resposta.json()
+
+    alert(respostaJS.message)
+
+    window.location.reload()
 }
 
 buscarFilmes()

@@ -1,7 +1,7 @@
 GET http://localhost:3333/
 
 ###
-POST http://localhost:3333/create
+POST https://backend-filmes03mc.vercel.app/create
 Content-Type: application/json
 
 {
